@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0f172a, #020617);
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Sections */
+.section {
+    padding: 120px 20px 80px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Welcome */
+.welcome {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.sub {
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* Video */
+video {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+/* Card style */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Prices */
+.price {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Fade animation */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#project">Project</a>
+    <a href="#prices">Prices</a>
+</div>
+
+<!-- Welcome -->
+<div id="home" class="section fade">
+    <div class="welcome">Welcome to my portfolio!</div>
+    <div class="sub">Roblox Developer • Scripting Systems</div>
+</div>
+
+<!-- Project -->
+<div id="project" class="section fade">
+
+    <h2>Ore Mining System</h2>
+
+    <video controls>
+        <source src="yourvideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="card">
+        Hey, this is a really basic ore mining system. I didn’t add more because I didn’t have much time, but hey.<br><br>
+        I will keep updating this website over time!
+    </div>
+
+</div>
+
+<!-- Prices -->
+<div id="prices" class="section fade">
+
+    <h2>My Prices</h2>
+
+    <div class="card">
+        <div class="price">Leaderstats system: 25 R$</div>
+        <div class="price">Datastore leaderstats: 45 R$</div>
+        <div class="price">Game systems: 100 R$ per task</div>
+        <br>
+        <b>(Not accepting percentage payments.)</b>
+    </div>
+
+</div>
+
+<script>
+// Fade in on scroll
+const faders = document.querySelectorAll('.fade');
+
+const appear = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+faders.forEach(el => appear.observe(el));
+</script>
+
+</body>
+</html>
